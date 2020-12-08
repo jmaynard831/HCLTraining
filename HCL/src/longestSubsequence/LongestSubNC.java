@@ -11,7 +11,8 @@ public class LongestSubNC {
 		// populate it with random values
 		popArray(numlist);
 
-		/*
+		/* {1 2 5 3 4}
+		 * 
 		 * We store the data in a list of lists.
 		 * 
 		 * The algorith works by sorting a list of numbers into every possible list of
@@ -73,14 +74,3 @@ public class LongestSubNC {
 	}
 
 }
-
-// old interior code for that other alg
-/*
- * 
- * //if the last entry of the last list is smaller than this num //then add it
- * to the list if(gll.get(gllflag).getLast()<numlist[x]) {
- * gll.get(gllflag).add(numlist[x]); } //if the last entry of the last list is
- * same/bigger, then //gllflag++ and then make a new list, and append this num
- * else{ gllflag++; gll.add(new LinkedList<Integer>(Arrays.asList(numlist[x])));
- * }
- */
