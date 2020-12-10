@@ -2,8 +2,9 @@ package finalProject;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -12,7 +13,7 @@ public class Main {
 	static String path = System.getProperty("user.dir") + "\\finproFolder";
 
 	public static void main(String[] args) {
-
+		System.out.println("Jacob Maynard\nLocker Prototype\nPhase 1 End Project");
 		// Make the directory for the project to play in
 		File f = new File(path);
 		f.mkdirs();
@@ -95,7 +96,7 @@ public class Main {
 			System.out.println("Invalid file name.");
 			searchFile();
 		}
-		
+
 		// Confirm that the file exists.
 		File f = new File(path + "\\" + filename);
 		// print result
@@ -106,8 +107,10 @@ public class Main {
 		}
 
 		// then, delete it.
-		if(f.delete()) {
-			System.out.println(filename);
+		if (f.delete()) {
+			System.out.println(filename + " was deleted.");
+		} else {
+			System.out.println(filename + " wasn't deleted.");
 		}
 		// print confirmation and return to editfilemenu
 	}
@@ -182,14 +185,14 @@ public class Main {
 	private static void listDir() {
 		// List all files in the current dir.
 		File f = new File(path);
-		String[] p = f.list();
-		if (p.length > 0) {
-			for (String s : p) {
-				System.out.println(s);
-			}
+		//String[] p = f.list();
+		List<String> list = new ArrayList<String>(Arrays.asList(f.list()));
+		if (list.size() > 0) {
+			list.stream().sorted().forEach(System.out::println);
 		} else {
 			System.out.println("No files in the Directory yet.");
 		}
+		System.out.println();
 
 	}
 
