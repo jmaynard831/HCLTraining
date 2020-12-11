@@ -22,6 +22,37 @@ public class Main {
 		topMenu();
 	}
 
+	private static void topMenu() {
+		String topMenu = "Select one:\n1. List Files\n2. Edit Files\n3. Exit App";
+		System.out.println(topMenu);
+		int selection = 0;
+		try {
+			selection = Integer.parseInt(sc.nextLine());
+		} catch (Exception e) {
+			topMenu();
+		}
+
+		switch (selection) {
+		case 1:// DONE - it lists all files in the dir.
+			System.out.println("Listing files:");
+			listDir();
+			topMenu();
+			break;
+		case 2:
+			System.out.println("Editing files:");
+			editFileMenu();
+			break;
+		case 3:
+			System.out.println("Exiting Application.");
+			closeApp();
+			break;
+		default:
+			topMenu();
+			break;
+		}
+
+	}
+
 	private static void editFileMenu() {
 		String editMenu = "1. Add File\n2. Delete File\n3. Search File\n4. Return";
 		System.out.println(editMenu);
@@ -143,37 +174,6 @@ public class Main {
 
 		// And here is where we would put all the file writing stuff
 		// but lets do that later.
-
-	}
-
-	private static void topMenu() {
-		String topMenu = "Select one:\n1. List Files\n2. Edit Files\n3. Exit App";
-		System.out.println(topMenu);
-		int selection = 0;
-		try {
-			selection = Integer.parseInt(sc.nextLine());
-		} catch (Exception e) {
-			topMenu();
-		}
-
-		switch (selection) {
-		case 1:// DONE - it lists all files in the dir.
-			System.out.println("Listing files:");
-			listDir();
-			topMenu();
-			break;
-		case 2:
-			System.out.println("Editing files:");
-			editFileMenu();
-			break;
-		case 3:
-			System.out.println("Exiting Application.");
-			closeApp();
-			break;
-		default:
-			topMenu();
-			break;
-		}
 
 	}
 
