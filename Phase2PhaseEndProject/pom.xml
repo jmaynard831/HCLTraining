@@ -32,6 +32,5 @@
         </configuration>
     </plugin>
     </plugins>
-		<finalName>Phase2PhaseEndProject</finalName>
 	</build>
 </project>
